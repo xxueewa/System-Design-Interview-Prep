@@ -11,20 +11,18 @@ A hands-on interview preparation toolkit combining a built-in system design know
 
 ## Getting Started
 
-### Prerequisites
-
-- [Claude Code](https://claude.ai/claude-code) installed
-- Java 11+ installed
-
 ### Setup
 
-1. Copy `SKILL.md` into `~/.claude/skills/`
-2. Install the Claude Code plugin in your IDE
-3. In the Claude Code prompt, invoke:
+1. Run the setup script from the project root:
+   ```bash
+   bash src/setup.sh
+   ```
+   This copies `SKILL.md` to `~/.claude/skills/`, installs the Claude Code CLI, and guides you through the IntelliJ plugin setup.
+2. In the Claude Code prompt, invoke:
    ```
    /sysdesigninterviewprep
    ```
-4. Start the mock interview session
+3. Start the mock interview session
 
 ## Running the Code
 
@@ -39,8 +37,10 @@ java -cp out Main
 
 ```
 src/
-└── skills/
+├── setup.sh
+├── Main.java
 └── systemdesignprac/
+    └── RateLimiter.java
 ```
 
 ## Topics Covered
