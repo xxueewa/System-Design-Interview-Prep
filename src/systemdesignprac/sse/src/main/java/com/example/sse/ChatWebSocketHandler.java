@@ -32,12 +32,14 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
+        System.out.println("Origin: " + session.getHandshakeHeaders().getOrigin());
+        System.out.println("Origin: " + session.getHandshakeHeaders().getFirst("origin"));
         sessions.put(session.getId(), session);
         System.out.println("[WS] Client connected: " + session.getId()
                 + " | Total: " + sessions.size());
 
-        sendToSession(session, "system", "Welcome! Your session ID: " + session.getId());
-        broadcast(session, "system", "A new user joined. Online: " + sessions.size());
+        sendToSession(session, "system", "Welcome! Your session ID: " + session.getId() + "/n");
+        broadcast(session, "system", "A new user joined. Online: " + sessions.size() + "/n");
     }
 
     /**
